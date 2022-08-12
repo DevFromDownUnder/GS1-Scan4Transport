@@ -10,7 +10,7 @@ ALPHA = UPPERALPHA / LOWERALPHA ; A-Z or a-z
 HEXDIG = DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
 
 ;==========Special chars
-DoubleQuote = '"' ; the double-quote character "
+DoubleQuote = "%22" ; the double-quote character "
 Octothorpe = "%23" ; percent-encoding of the # character
 ForwardSlash = "%2F" ; percent-encoding of the / character
 Percent = "%25" ; percent-encoding of the % character
@@ -81,7 +81,7 @@ gsrn-value = 18DIGIT ; exactly 18 digits
 gcn-value = 13DIGIT [1*12DIGIT] ; 13 digits then optional 1-12 digits
 sscc-value = 18DIGIT ; exactly 18 digits
 gdti-value = 13DIGIT [1*17XCHAR] ; 13 digits then optional 1-17 characters from the 82-character subset
-ginc-value = 1*30XCHAR; 1-30 characters from the 82-character subset
+ginc-value = 1*30XCHAR ; 1-30 characters from the 82-character subset
 gsin-value = 17DIGIT ; exactly 17 digits
 grai-value = 14DIGIT [1*16XCHAR] ; 14 digits then optional 1-16 characters from the 82-character subset of ISO/IEC 646
 giai-value = 1*30XCHAR ; 1-30 characters from 82-chr subset
