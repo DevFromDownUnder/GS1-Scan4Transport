@@ -66,31 +66,24 @@ cpsn-code = "8011"/ "cpsn" ; CPID Serial Number
 glnx-code = "254" / "glnx" ; GLN extension
 refno-code = "8020"/ "refno" ; Payment Reference Number
 srin-code = "8019" / "srin" ; Service Relation Instance Number
-tpx-code = "235"; third-party controlled serialised extension to GTIN
+tpx-code = "235" ; third-party controlled serialised extension to GTIN
 uic-ext-code = "7040" ; GS1 UIC with Extension 1 and Importer Index
 
 ;==========Primary key formats
 gtin-value = 8DIGIT / 12DIGIT / 13DIGIT / 14DIGIT
-itip-value = 14DIGIT 2DIGIT 2DIGIT
- ; 14 digits then 2 digits then 2 digits
+itip-value = 14DIGIT 2DIGIT 2DIGIT ; 14 digits then 2 digits then 2 digits
 gmn-value = 1*25XCHAR ; 1-25 characters from 82-chr subset
 cpid-value = 1*30YCHAR ; 1-30 characters from 39-chr subset
 gln-value = 13DIGIT ; exactly 13 digits
 partyGln-value = 13DIGIT ; exactly 13 digits
 gsrnp-value = 18DIGIT ; exactly 18 digits
 gsrn-value = 18DIGIT ; exactly 18 digits
-gcn-value = 13DIGIT [1*12DIGIT]
- ; 13 digits then optional 1-12 digits
+gcn-value = 13DIGIT [1*12DIGIT] ; 13 digits then optional 1-12 digits
 sscc-value = 18DIGIT ; exactly 18 digits
-gdti-value = 13DIGIT [1*17XCHAR]
-; 13 digits then optional 1-17 characters
-; from the 82-character subset
-ginc-value = 1*30XCHAR
-; 1-30 characters from the 82-character subset
+gdti-value = 13DIGIT [1*17XCHAR] ; 13 digits then optional 1-17 characters from the 82-character subset
+ginc-value = 1*30XCHAR; 1-30 characters from the 82-character subset
 gsin-value = 17DIGIT ; exactly 17 digits
-grai-value = 14DIGIT [1*16XCHAR]
-; 14 digits then optional 1-16 characters
-; from the 82-character subset of ISO/IEC 646
+grai-value = 14DIGIT [1*16XCHAR] ; 14 digits then optional 1-16 characters from the 82-character subset of ISO/IEC 646
 giai-value = 1*30XCHAR ; 1-30 characters from 82-chr subset
 
 ;==========Key qualifier formats
@@ -366,10 +359,8 @@ reg-name = *( unreserved / pct-encoded / sub-delims )
 dec-octet = DIGIT ; 0-9 / %x31-39 DIGIT ; 10-99 / "1" 2DIGIT ; 100-199 / "2" %x30-34 DIGIT ; 200-249 / "25" %x30-35 ; 250-255
 IPv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
 IPv6address = 6( h16 ":" ) ls32 / "::" 5( h16 ":" ) ls32 / [ h16 ] "::" 4( h16 ":" ) ls32 / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32 / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32 / [ *3( h16 ":" ) h16 ] "::" h16 ":" ls32 / [ *4( h16 ":" ) h16 ] "::" ls32 / [ *5( h16 ":" ) h16 ] "::" h16 / [ *6( h16 ":" ) h16 ] "::"
-ls32 = ( h16 ":" h16 ) / IPv4address
-; least-significant 32 bits of address
-h16 = 1*4HEXDIG
-; 16 bits of address represented in hexadecimal
+ls32 = ( h16 ":" h16 ) / IPv4address ; least-significant 32 bits of address
+h16 = 1*4HEXDIG ; 16 bits of address represented in hexadecimal
 IP-literal = "[" ( IPv6address / IPvFuture ) "]"
 IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
 host = IP-literal / IPv4address / reg-name
@@ -377,8 +368,7 @@ port = *DIGIT
 hostname = host [ ":" port ] 
 
 queryStringDelim = "&" / ";"
-queryStringComp =
-"?" queryStringParam *( queryStringDelim queryStringParam)
+queryStringComp = "?" queryStringParam *( queryStringDelim queryStringParam)
 uncompressedGS1webURIPattern = gs1path [queryStringComp]
 referenceGS1webURI = "https://id.gs1.org" uncompressedGS1webURIPattern 
 
